@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { TreeComponent } from './tree/tree.component'
 
 const routes: Routes = [
-  { path: '', component: TreeComponent }
+  { path: '', redirectTo: '/tree', pathMatch: 'full' },
+  { path: 'tree', component: TreeComponent }
 ];
 
 @NgModule({

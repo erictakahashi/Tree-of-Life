@@ -1,3 +1,9 @@
-<p>
-  Tree Node
-</p>
+<div *ngIf="treeNode">
+
+  <b>{{treeNode.name | uppercase}} Details</b>
+  <div><span>ID: </span>{{treeNode.id}}</div>
+  <div><span>Node name: </span>{{treeNode.name}}</div>
+
+  <button (click)="goBack()">go back</button>
+
+</div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { TreeService } from '../tree.service';
 
 @Component({
   selector: 'app-tree-node',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TreeNodeComponent implements OnInit {
 
-  constructor() { }
+  treeNode: Object;
+
+  constructor(
+    private route: ActivatedRoute,
+    private treeService: TreeService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
+    this.getTreeNode();
+  }
+
+  getTreeNode(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.treeService.getTreeNode(id)
+      .subscribe(treeNode => this.treeNode = treeNode);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

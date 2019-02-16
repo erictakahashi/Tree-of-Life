@@ -3,13 +3,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { TreeComponent } from './tree/tree.component';
 import { AppRoutingModule } from './app-routing.module';
+import { TreeComponent } from './tree/tree.component';
+import { TreeNodeComponent } from './tree-node/tree-node.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TreeComponent
+    TreeComponent,
+    TreeNodeComponent
   ],
   imports: [
     BrowserModule,

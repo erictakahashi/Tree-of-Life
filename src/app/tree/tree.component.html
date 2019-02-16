@@ -1,3 +1,7 @@
-<p>
-  {{tree}}
-</p>
+<ul>
+  <li *ngFor="let treeNode of tree" (click)="onNodeSelect(treeNode)">
+    <a routerLink="/node/{{treeNode.id}}">
+      <span>{{treeNode.id}}</span> {{treeNode.name}}
+    </a>
+  </li>
+</ul>

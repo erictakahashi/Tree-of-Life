@@ -8,7 +8,7 @@ import { TreeService } from '../tree.service.js';
 })
 export class TreeComponent implements OnInit {
 
-  tree: string;
+  tree: Object[];
 
   constructor(private treeService: TreeService) { }
 

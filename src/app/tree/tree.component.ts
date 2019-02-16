@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TreeService } from '../tree.service.js';
 
 @Component({
   selector: 'app-tree',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TreeComponent implements OnInit {
 
-  constructor() { }
+  tree: string;
+
+  constructor(private treeService: TreeService) { }
 
   ngOnInit() {
+    this.getTree();
+  }
+
+  getTree(): void {
+    this.treeService.getTree()
+      .subscribe(tree => this.tree = tree);
   }
 
 }

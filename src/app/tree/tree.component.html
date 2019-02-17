@@ -1,7 +1,5 @@
-<ul>
-  <li *ngFor="let treeNode of tree" (click)="onNodeSelect(treeNode)">
-    <a routerLink="/node/{{treeNode.id}}">
-      <span>{{treeNode.id}}</span> {{treeNode.name}}
-    </a>
-  </li>
-</ul>
+<div *ngIf="tree" class="tree-root">
+  <a routerLink="/node/{{tree.root.node_id}}">
+    {{tree.root.taxon.name}}
+  </a>
+</div>

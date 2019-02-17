@@ -23,7 +23,7 @@ export class TreeNodeComponent implements OnInit {
   }
 
   getTreeNode(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.treeService.getTreeNode(id)
       .subscribe(treeNode => this.treeNode = treeNode);
   }

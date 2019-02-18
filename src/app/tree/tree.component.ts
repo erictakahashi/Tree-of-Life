@@ -9,7 +9,7 @@ import { TreeService } from '../tree.service.js';
 export class TreeComponent implements OnInit {
 
   tree: Object;
-  subTree: Object;
+  loading = false;
 
   constructor(private treeService: TreeService) { }
 
@@ -18,19 +18,16 @@ export class TreeComponent implements OnInit {
   }
 
   getTree(): void {
+    this.loading = true;
     this.treeService.getTree()
       .subscribe((tree) => {
-        this.tree = tree
-
-        // Note: Error when trying to get the subtree
-        // Error: The requested subtree is too large to be returned via the API.
-        this.getSubTree(tree.root.node_id);
+        this.loading = false;
+        this.tree = tree;
       });
   }
 
-  getSubTree(id: string): void {
-    this.treeService.getSubTree(id)
-      .subscribe(subTree => this.subTree = subTree);
+  getTooltipData(treeNode: any): string {
+    return `Name: ${treeNode.name} \n  Ott ID: ${treeNode.ott_id} \n  Rank: ${treeNode.rank}`;
   }
 
 }

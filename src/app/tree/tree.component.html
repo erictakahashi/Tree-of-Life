@@ -1,5 +1,22 @@
-<div *ngIf="tree" class="tree-root">
-  <a routerLink="/node/{{tree.root.node_id}}">
-    {{tree.root.taxon.name}}
-  </a>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h2 class="display-5">Tree of Life Demo</h2>
+    <p class="lead">This is a simple demo of consuming Tree of Life API from: 
+      <a href="https://github.com/OpenTreeOfLife/germinator/wiki/Synthetic-tree-API-v3" target="_blank">https://github.com/OpenTreeOfLife/germinator/wiki/Synthetic-tree-API-v3</a>
+    </p>
+    <hr class="my-4">
+    <p><span class="font-weight-bold">Important Note:</span> It was not possible to get the subtree of "Cellular Organism". When requesting the data we got the folling error:</p>
+    <div class="alert alert-danger" role="alert">
+      Error: The requested subtree is too large to be returned via the API.
+    </div>
+  </div>
+
+  <h3>Tree:</h3>
+
+  <div *ngIf="tree" class="node alert alert-info text-capitalize">
+    <span class="font-weight-bold">Node:</span>
+    <a routerLink="/node/{{tree.root.node_id}}">
+      {{tree.root.taxon.name}}
+    </a>
+  </div>
 </div>

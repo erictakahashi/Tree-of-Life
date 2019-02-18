@@ -1,3 +1,3 @@
-.tree-root {
-    text-transform: capitalize;
+.node {
+  display: inline-block;
 }
